@@ -1,0 +1,43 @@
+* {
+    font-size: 30px;
+}
+
+body
+{
+    background-color:bisque;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+}
+h2 {
+    text-align: center;
+    color: blue;
+}
+.conteiner {
+    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: brown;
+  }
+.val
+{
+ color: rgb(230, 170, 42);
+}
+button {
+    width: 260px;
+    margin: 10px;
+
+}
+
+
+img{
+    width: 70px;
+    height: 40px;
+    margin-left: 10px;
+    margin-bottom: -10px;
+   
+}
