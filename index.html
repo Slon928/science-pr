@@ -14,7 +14,7 @@
         <div class="square-3">
           
             <div class="square-4">
-                <p id="name">Дудинский Александр</p>
+                <p id="name"><span id="names">Дудинский Александр</span></p>
                
                 <div class="skill">
                     <h1>Основные навыки:</h1>
@@ -42,26 +42,64 @@
             <div class="square-2">
              
                 <h1>Контактная информация:</h1>
-                <h1>тел.:+375(29)-124-410-0</h1>
+                <h1>тел.:<span id="phoneDisplay">+375(29)-124-410-0</span></h1>
                 <br>
-                  <h1>Место проживания:</h1>
-                  <h1>Бобруйск, Беларусь</h1>
+                <h1>Место проживания:<span id="city">Бобруйск</span></h1>
+                  
                 <br>
-                <h1>Адрес:ул.Ульяновская 33</h1>
+                
                 <br>
                 <h1>Электронная почта:</h1>
-                <h1>dudinskiyav@gmail.com</h1>
+                <h1><span id="email">dudinskiyav@gmail.com</span></h1>
                 
             </div> 
         </div> 
     </div> 
-    
+   
 
     <script>
         if(document.referrer.indexOf('index2.html')===-1)
         {
         window.location.replace('index2.html');
         }
+        window.addEventListener('DOMContentLoaded',()=>
+        {
+            const phone=localStorage.getItem('phone');
+            const name=localStorage.getItem('names');
+            const city=localStorage.getItem('city');
+            const email=localStorage.getItem('email');
+
+     const savedImage=localStorage.getItem('selectedImage');
+    if(savedImage)
+    {
+        const imgElement=document.querySelector('.square-1 img');
+        if(imgElement)
+        {
+            imgElement.src=savedImage;
+        }
+    }
+
+            if(phone)
+            {
+                document.getElementById('phoneDisplay').textContent=phone;
+            }
+
+            if(names)
+            {
+                document.getElementById('names').textContent=name;
+            }
+
+            if(city)
+            {
+                document.getElementById('city').textContent=city;
+            }
+
+            if(email)
+            {
+                document.getElementById('email').textContent=email;
+            }
+        });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

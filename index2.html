@@ -4,26 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вычислитель</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <h1>Валютный калькулятор</h1>
-    <h2>Перед Вами "Валютный калькулятор", введите сумму в поле напротив желаемой валюты </h2>
+    <h1>Регистрация</h1>
+    <h2>Перед Вами пустые поля, Вам нужно ввести необходимы данные для получения своего CV </h2>
     <div class="conteiner">
-<h1 class="val">Белорусский рубль:</h1>
-    <p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/2560px-Flag_of_Belarus.svg.png" alt="">   <input type="text" id="n1"></p>
-    <h1  class="val">Российский рубль:</h1>
-    <p> <img src="https://img.freepik.com/free-vector/illustration-russia-flag_53876-27016.jpg" alt=""> <input type="text" id="n2"></p>
-    <h1  class="val">Евро:</h1>
-    <p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1200px-Flag_of_Europe.svg.png" alt=""> <input type="text" id="n3"></p>
-    <h1  class="val">Доллар:</h1>
-    <p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_the_United_States_%2851_stars%29.svg/300px-Flag_of_the_United_States_%2851_stars%29.svg.png" alt=""> <input type="text" id="n4"></p>
+<h1 class="val">ФИО:</h1>
+    <input type="text" id="n1"></p>
+    <h1  class="val">Номер телефона:</h1>
+    <input type="text" id="n2"></p>
+    <h1  class="val">Место проживания(город):</h1>
+    <input type="text" id="n3"></p>
+    <h1  class="val">Электронная почта:</h1>
+   <input type="text" id="n4"></p>
+   <button id="addPhotoBtn">Добавить фото</button>
+    <input type="file" id="fileInput" accept="image/*" style="display: none"/>
+    <script>
+        const addPhotoBtn=document.getElementById('addPhotoBtn');
+        const fileInput=document.getElementById('fileInput');
+        addPhotoBtn.addEventListener('click', ()=>
+    {
+        fileInput.click();
+    });
+    fileInput.addEventListener('change',(event)=>
+    {
+        const file=event.target.files[0];
+        if(!file) return;
+        if(!file.type.startWith('image/'))
+    {
+        alert('Выберите изображение!');
+        return;
+    }
+    const reader=new FileReader();
+    reader.onload = () => {
+        console.log('Фото загружено')
+        localStorage.setItem('selectedImage', reader.result);
+        window.location.href='index.html';
+    };
+    reader.readAsDataURL(file);
+    });
+    </script>
     
-   
+    <button id="goButton">Создать CV</button>
   
     </div>
-    <button id="goButton">Перейти</button>
+
     <script src="script.js"></script>
 </body>
 </html>
