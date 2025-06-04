@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export https://slon928.github.io/science-pr/=/home/yourdoma/repo/*
-    - export https://slon928.github.io/science-pr/=/home/yourdoma/public_html/
-    - /bin/rsync -rav --exclude '.git' --exclude '.cpanel.yml' --del $https://slon928.github.io/science-pr/ $https://my-work.site/
+    - export REPOPATH = /home/myworksite/repositories/science-pr/*
+    - export SITEPATH = /home/myworksite/public_html/
+    - /bin/rsync -rav --exclude '.git' --exclude '.cpanel.yml' --del $REPOPATH $SITEPATH
